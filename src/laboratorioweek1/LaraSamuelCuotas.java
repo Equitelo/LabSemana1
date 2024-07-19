@@ -11,27 +11,26 @@ public class LaraSamuelCuotas {
     public static void main(String[] args) {
         
         Scanner lea = new Scanner(System.in);
-        
-        double meses;
-        double interes, prestamoBanco;
-        double total=0, totalMensual=0;
+        double cobro=0, totalMensual=0, total=0, conversion=0;
         
         
         System.out.print("Prestamo a pagar: ");
-        prestamoBanco=lea.nextDouble();
+        double prestamoBanco=lea.nextDouble();
         
         System.out.print("Ingresar el plazo de los meses: ");
-        meses=lea.nextDouble();
+        double meses=lea.nextDouble();
         
-        System.out.print("Ingresar el interes: ");
-        interes=lea.nextDouble();
+        System.out.print("Ingresar porcentaje del interes: %");
+        double interes=lea.nextDouble();
         
-        total=prestamoBanco*meses*interes;
-        totalMensual=total/meses;
+        conversion=interes/100;
+        cobro=prestamoBanco*meses*conversion;
+        totalMensual=cobro/meses;
+        total=prestamoBanco+cobro;
         
-        System.out.println("");
-        System.out.println("Pago mensual: "+totalMensual);
-        System.out.println("El interes a pagar es de "+total);
+        System.out.println("***** CUOTAS *****");
+        System.out.println("Pago mensual: HNL "+totalMensual);
+        System.out.println("El interes a pagar es de: HNL "+total);
         
     
     }
